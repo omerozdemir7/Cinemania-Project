@@ -1,6 +1,7 @@
 // src/js/main.js
 
 // === 1. ORTAK MODÜLLERİ İÇERİ AL ===
+console.log('Ana JS dosyası yüklendi ✔');
 import { setupModal } from './modal.js';
 import { setupTeamModal } from './team-modal.js';
 import { initHeader } from './header.js'; // <-- Header modülünü çağırdık
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- A. Ortak Bileşenleri Başlat ---
   const { openModal } = setupModal();
   window.openMovieModal = openModal;
-  
+
   setupTeamModal();
   initHeader(); // <-- Header active link ayarını çalıştır
 
@@ -26,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (path === '/' || path.endsWith('index.html')) {
     moduleName = 'index.js';
   }
-
-
 
   // --- C. Modülü Yükle ---
   if (moduleName) {
