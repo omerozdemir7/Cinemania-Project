@@ -1,25 +1,3 @@
-/* =============================
-   MY-LIBRARY.CSS - KÜTÜPHANE ÖZEL
-============================== */
-
-/* Hero alanı (Kütüphane) */
-#library-hero .hero-content {
-  min-height: 200px;
-}
-
-/* İçerik alanı */
-.library-content-section {
-  padding: 40px 0;
-}
-/* Kütüphane boş mesajı */
-.library-message {
-  font-size: 18px;
-  color: var(--text-grey);
-  text-align: center;
-  padding: 80px 20px;
-  grid-column: 1 / -1; /* Grid'in tamamını kapla */
-}
-
 /* --- Tür Filtresi (Genre Filter) --- */
 .genre-filter-container {
   position: relative;
@@ -85,22 +63,6 @@
   font-weight: 700;
 }
 
-/* --- "Daha Fazla Yükle" Butonu --- */
-.load-more-container {
-  padding: 20px 0 40px 0;
-  text-align: center;
-}
-.load-more-container.is-hidden {
-  display: none;
-}
-.load-more-btn {
-  padding: 12px 32px;
-  font-size: 14px;
-}
-
-/* =============================
-   LIGHT MODE (Library Özel)
-============================== */
 body.light-mode .genre-header {
   border-color: var(--light-border);
   background-color: var(--light-header-bg);
@@ -118,7 +80,3 @@ body.light-mode .genre-item.active {
   background-color: var(--primary-orange);
   color: var(--primary-black);
 }
-body.light-mode .library-message {
-  color: var(--light-text);
-}
-/* Hero'nun light modda değişmemesi kuralı common.css'e taşındı */

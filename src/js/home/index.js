@@ -1,37 +1,68 @@
 // src/js/index.js
-import { showLoader, hideLoader } from '/js/common/loader.js';
-import { fetchTrendingMovies, fetchUpcomingMovies } from '/js/api/movies-data.js';
+import { showLoader, hideLoader } from './loader.js';
+import { fetchTrendingMovies } from './movies-data.js';
 import {
   renderMovieCard,
   updateHeroWithMovie,
-  renderUpcomingSection,
-} from '/js/common/ui-helpers.js';
+} from './ui-helpers.js';
+import { initUpcomingSection } from './upcoming.js';
 
-// Initialize home page
-async function initHomePage() {
+// DOM hazır olunca çalış
+// (main.js zaten DOMContentLoaded içinde çağırıyor ama 
+// dinamik import olduğu için burası kendi başına çalışır)
+const initHome = async () => {
+  const heroSection = document.getElementById('home-hero');
+  const heroContent = heroSection?.querySelector('.hero-content');
+  const trendsGrid = document.getElementById('weekly-trends-grid');
+
+  if (!heroSection && !trendsGrid) return; // Anasayfada değilsek dur
+
+  showLoader();
+
   try {
-    showLoader();
+    const [dayTrends, weekTrends] = await Promise.all([
+      fetchTrendingMovies('day'),
+      fetchTrendingMovies('week'),
+    ]);
 
-    // Fetch and render upcoming movie
-    const upcomingMovies = await fetchUpcomingMovies();
-    if (upcomingMovies && upcomingMovies.length > 0) {
-      renderUpcomingSection(upcomingMovies[0]);
+    // --- Hero İşlemleri ---
+    let heroMovie = null;
+    if (dayTrends?.results?.length) {
+      const rand = Math.floor(Math.random() * Math.min(5, dayTrends.results.length));
+      heroMovie = dayTrends.results[rand];
+    } else if (weekTrends?.results?.length) {
+      heroMovie = weekTrends.results[0];
     }
 
-    // Fetch and render trending movies
-    const trendingMovies = await fetchTrendingMovies();
-    console.log('Trending movies:', trendingMovies);
+    if (heroMovie) {
+      await updateHeroWithMovie(heroMovie.id, heroSection, heroContent);
+    }
 
-    hideLoader();
+    // --- Weekly Trends ---
+    if (weekTrends?.results?.length && trendsGrid) {
+      trendsGrid.innerHTML = weekTrends.results
+        .slice(0, 3)
+        .map(m => renderMovieCard(m))
+        .join('');
+        
+      trendsGrid.addEventListener('click', (e) => {
+        const card = e.target.closest('.movie-card');
+        if (card && card.dataset.id) {
+          // Kart tıklandığında hero'yu güncelle
+          updateHeroWithMovie(card.dataset.id, heroSection, heroContent);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+
+    // --- Upcoming ---
+    initUpcomingSection();
+
   } catch (error) {
-    console.error('Error initializing home page:', error);
+    console.error("Anasayfa yükleme hatası:", error);
+  } finally {
     hideLoader();
   }
-}
+};
 
-// Run on page load
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initHomePage);
-} else {
-  initHomePage();
-}
+initHome();
