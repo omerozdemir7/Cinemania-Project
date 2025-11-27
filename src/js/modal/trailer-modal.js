@@ -1,3 +1,3 @@
 // Gerekli modülleri import et
-import { fetchMovieVideos } from './movies-data.js';
+import { fetchMovieVideos } from '/js/api/movies-data.js';
 

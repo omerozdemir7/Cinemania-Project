@@ -1,11 +1,11 @@
 // src/js/main.js
 
 // === 1. ORTAK MODÜLLERİ İÇERİ AL ===
-import { setupModal } from '../modal/modal.js';
-import { setupTeamModal } from './team-modal.js';
-import { initHeader } from '../header/header.js'; // <-- Header modülünü çağırdık
-import '../header/mobile-nav.js';
-import './theme-toggle.js';
+import { setupModal } from '/js/modal/modal.js';
+import { setupTeamModal } from '/js/common/team-modal.js';
+import { initHeader } from '/js/header/header.js'; // <-- Header modülünü çağırdık
+import '/js/header/mobile-nav.js';
+import '/js/common/theme-toggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- A. Ortak Bileşenleri Başlat ---
@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let modulePath = null;
 
   if (path.includes('catalog.html')) {
-    modulePath = '../catalog/catalog.js';
+    modulePath = '/js/catalog/catalog.js';
   } else if (path.includes('my-library.html')) {
-    modulePath = '../my-library/my-library.js';
-  } else if (path === '/' || path.endsWith('index.html')) {
-    modulePath = '../home/index.js';
+    modulePath = '/js/my-library/my-library.js';
+  } else if (path.endsWith('/') || path.endsWith('index.html')) {
+    modulePath = '/js/home/index.js';
   }
 
 

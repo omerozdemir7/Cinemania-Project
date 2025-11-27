@@ -2,8 +2,8 @@
 import {
   searchMovies,
   fetchPopularMovies,
-} from '../modal/movies-data.js';
-import { setupPagination } from '../common/pagination.js';
-import { showLoader, hideLoader } from '../common/loader.js';
-import { renderMovieCard, updateHeroWithMovie } from '../common/ui-helpers.js';
+} from '/js/api/movies-data.js';
+import { setupPagination } from '/js/common/pagination.js';
+import { showLoader, hideLoader } from '/js/common/loader.js';
+import { renderMovieCard, updateHeroWithMovie } from '/js/common/ui-helpers.js';
 
