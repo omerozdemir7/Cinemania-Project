@@ -5,8 +5,8 @@ import {
   fetchMovieVideos,
   getImageUrl,
   getOriginalImageUrl,
-} from './movies-data.js';
-import { openTrailerModal, openTrailerErrorModal } from './trailer-modal.js';
+} from '/js/api/movies-data.js';
+import { openTrailerModal, openTrailerErrorModal } from '/js/modal/trailer-modal.js';
 
 // Render upcoming section
 export function renderUpcomingSection(movie) {
