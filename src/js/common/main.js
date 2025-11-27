@@ -6,6 +6,11 @@ import { setupTeamModal } from '../components/team-modal.js'; // Bu yol doğru g
 import '../header/mobile-nav.js'; // Düzeltildi: ./ -> ../header/
 import './theme-toggle.js'; // Düzeltildi: ../common/ -> ./
 
+// Sayfa modüllerini statik olarak import et
+import '../pages/index.js';
+import '../pages/catalog.js';
+import '../pages/my-library.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- A. Ortak Bileşenleri Başlat ---
   const { openModal } = setupModal();
@@ -46,10 +51,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- D. Modülü Yükle ---
-  if (moduleName) {
-    import(/* @vite-ignore */ `../pages/${moduleName}`)
-      .then(() => console.log(`${moduleName} yüklendi.`))
-      .catch(err => console.error(`${moduleName} yüklenirken hata:`, err));
-  }
+  // --- D. Modüller zaten statik olarak import edildi ---
 });

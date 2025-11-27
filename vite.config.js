@@ -1,13 +1,13 @@
 import { defineConfig } from "vite";
 import { glob } from "glob";
-import VitePluginHtmlInject from 'vite-plugin-html-inject';
+import injectHTML from "vite-plugin-html-inject";
 
 export default defineConfig(({ command }) => {
   return {
+    // ... diğer ayarların ...
     
-    
-    // GitHub Repo adını buraya yaz
-    base: "/Cinemania-Project/", 
+    // BURAYI EKLE: GitHub Repo adını buraya yaz
+    base: "/cinemania-Project/", 
 
     root: "src", 
     build: {
@@ -19,9 +19,7 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [
-    VitePluginHtmlInject({
-      inject: true,
-    }),
+      injectHTML(),
     ],
   };
 });
