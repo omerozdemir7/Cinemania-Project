@@ -1,4 +1,4 @@
-const d=[{name:"Rıdvan KESKEN",role:"Developer",img:"/Cinemania-Project/images/our-teams/ridvan-kesken.jpeg",github:"https://github.com/KeskenRidvan",linkedin:"https://www.linkedin.com/in/ridvankesken/"}];function l(e){return`
+const d=[{name:"Rıdvan KESKEN",role:"Developer",img:"/images/our-teams/ridvan-kesken.jpeg",github:"https://github.com/KeskenRidvan",linkedin:"https://www.linkedin.com/in/ridvankesken/"}];function l(e){return`
     <li class="footer__student-item">
       <img class="footer__student-photo" src="${e.img}" alt="${e.name}" />
       <div class="footer__student-info">
@@ -6,13 +6,13 @@ const d=[{name:"Rıdvan KESKEN",role:"Developer",img:"/Cinemania-Project/images/
         <p>${e.role}</p>
         <a class="footer__icon-link" href="${e.github}" target="_blank" aria-label="GitHub">
           <svg class="footer__icon" width="30" height="30">
-            <use xlink:href="/Cinemania-Project/images/icon.svg#icon-github"></use>
+            <use xlink:href="/images/icon.svg#icon-github"></use>
           </svg>
         </a>
         ${e.linkedin!=="#"?`
         <a class="footer__icon-link" href="${e.linkedin}" target="_blank" aria-label="LinkedIn">
           <svg class="footer__icon" width="30" height="30">
-            <use xlink:href="/Cinemania-Project/images/icon.svg#icon-linkedin"></use>
+            <use xlink:href="/images/icon.svg#icon-linkedin"></use>
           </svg>
         </a>`:""}
       </div>
@@ -30,4 +30,4 @@ const d=[{name:"Rıdvan KESKEN",role:"Developer",img:"/Cinemania-Project/images/
       </ul>
     </div>
   `,document.body.appendChild(e),e)}function a(){const e=document.querySelector(".footer__modal-content"),t=document.querySelector(".footer");!e||!t||(window.matchMedia("(max-width: 768px)").matches?(e.style.maxWidth="300px",t.style.paddingBottom="100px"):window.matchMedia("(max-width: 1279px)").matches?(e.style.maxWidth="720px",t.style.paddingBottom="80px"):(e.style.maxWidth="1200px",t.style.paddingBottom="50px"))}function s(){r();const e=c(),t=e.querySelector(".footer__modal-content"),n=document.getElementById("openFooterModalBtn"),i=document.getElementById("closeFooterModalBtn");if(!n||!i){console.warn("Modal tetikleyici veya kapatma butonu bulunamadı.");return}n.addEventListener("click",()=>{e.classList.add("active"),document.body.style.overflow="hidden"}),i.addEventListener("click",()=>{e.classList.remove("active"),document.body.style.overflow=""}),e.addEventListener("click",o=>{t.contains(o.target)||(e.classList.remove("active"),document.body.style.overflow="")}),document.addEventListener("keydown",o=>{o.key==="Escape"&&(e.classList.remove("active"),document.body.style.overflow="")}),a(),window.addEventListener("resize",a)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",s,{once:!0}):s();
-//# sourceMappingURL=footer-KQcrAqCY.js.map
+//# sourceMappingURL=footer-0h2izmYi.js.map

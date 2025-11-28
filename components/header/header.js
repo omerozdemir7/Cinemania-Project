@@ -1,10 +1,4 @@
-import popcornUrl from '/images/header/popcorn.png';
-
 function initHeader() {
-  document.querySelectorAll('.header__logo-icon').forEach(img => {
-    img.src = popcornUrl;
-  });
-  prefixLinksWithBaseUrl();
   initMenu('#menuLinks', 'menuLinks:active');
   initMenu('#links', 'menuLinks:active');
   initSidebar('#menu', '.header__sidebar', '.header__sidebar-backdrop');
@@ -18,25 +12,6 @@ function initHeader() {
     body: 'body',
   });
 }
-
-function prefixLinksWithBaseUrl() {
-  const navLinks = document.querySelectorAll('.header__navbar a, .header__sidebar a');
-  const baseUrl = import.meta.env.BASE_URL;
-
-  // Sadece build modunda ve base URL '/' değilse çalıştır
-  if (import.meta.env.PROD && baseUrl && baseUrl !== '/') {
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      // Sadece kök-göreli (root-relative), harici olmayan ve boş olmayan linkleri güncelle
-      if (href && href.startsWith('/') && !href.startsWith('//')) {
-        // 'baseUrl' sonunda '/' var ve 'href' başında '/' var, bu yüzden birini kaldır
-        const newHref = baseUrl.slice(0, -1) + href;
-        link.setAttribute('href', newHref);
-      }
-    });
-  }
-}
-
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initHeader);
 } else {
@@ -135,7 +110,7 @@ function initTheme(toggleSel, iconSel, refs = {}) {
 
     icon?.setAttribute(
       'href',
-      `${import.meta.env.BASE_URL}images/icon.svg#${isDark ? 'icon-Vector' : 'icon-Sun'}`
+      `/images/icon.svg#${isDark ? 'icon-Vector' : 'icon-Sun'}`
     );
   };
 

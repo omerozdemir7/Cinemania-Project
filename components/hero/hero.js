@@ -36,15 +36,15 @@ function createRatingStars(vote) {
   let stars = [];
   for (let i = 0; i < fullStars; i++)
     stars.push(
-      `<svg class="hero__icon--full-star"><use xlink:href="${import.meta.env.BASE_URL}images/icon.svg#icon-full-star"></use></svg>`
+      '<svg class="hero__icon--full-star"><use xlink:href="/images/icon.svg#icon-full-star"></use></svg>'
     );
   if (hasHalfStar)
     stars.push(
-      `<svg class="hero__icon--half-star"><use xlink:href="${import.meta.env.BASE_URL}images/icon.svg#icon-half-star"></use></svg>`
+      '<svg class="hero__icon--half-star"><use xlink:href="/images/icon.svg#icon-half-star"></use></svg>'
     );
   for (let i = 0; i < emptyStars; i++)
     stars.push(
-      `<svg class="hero__icon--empty-star"><use xlink:href="${import.meta.env.BASE_URL}images/icon.svg#icon-empty-star"></use></svg>`
+      '<svg class="hero__icon--empty-star"><use xlink:href="/images/icon.svg#icon-empty-star"></use></svg>'
     );
   return stars.join('');
 }
