@@ -1,10 +1,6 @@
-import {
-  fetchWeeklyMovies,
-  fetchMovieDetails,
-  fetchGenres,
-} from "../../services/api.js";
+import { fetchWeeklyMovies, fetchMovieDetails, fetchGenres } from '../../services/api.js';
 
-import { Modal } from "../modal/modal.js";
+import { Modal } from '../modal/modal.js';
 
 let gallery;
 let seeAllBtn;
@@ -34,7 +30,7 @@ function createRatingStars(vote) {
     stars.push(
       '<svg class="weekly__icon--empty-star"><use xlink:href="/images/icon.svg#icon-empty-star"></use></svg>'
     );
-  return stars.join("");
+  return stars.join('');
 }
 async function renderWeeklyTrends(limit = getVisibleCardCount()) {
   try {
@@ -49,24 +45,22 @@ async function renderWeeklyTrends(limit = getVisibleCardCount()) {
     }, {});
     const moviesToShow = allMovies.slice(0, limit);
     const markup = moviesToShow
-      .map((movie) => {
+      .map(movie => {
         const posterUrl = movie.poster_path
           ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
           : `https://via.placeholder.com/500x750?text=No+Image`;
         const genreName = movie.genre_ids
-          .map((id) => genreMap[id])
+          .map(id => genreMap[id])
           .slice(0, 1)
-          .join(", ");
+          .join(', ');
         const year = movie.release_date
           ? movie.release_date.slice(0, 4)
-          : "N/A";
+          : 'N/A';
         const ratingStars = createRatingStars(movie.vote_average);
         return `
           <li class="weekly__card" data-id="${movie.id}">
             <div class="poster-wrapper">
-              <img class="weekly__card-img" src="${posterUrl}" alt="${
-          movie.title
-        }" />
+              <img class="weekly__card-img" src="${posterUrl}" alt="${movie.title}" />
               <div class="weekly__card-overlay">
                 <h3 class="weekly__card-title">${movie.title.toUpperCase()}</h3>
                 <p class="weekly__card-info">${genreName} | ${year}</p>
@@ -76,40 +70,40 @@ async function renderWeeklyTrends(limit = getVisibleCardCount()) {
           </li>
         `;
       })
-      .join("");
+      .join('');
     gallery.innerHTML = markup;
   } catch (err) {
-    console.error("Weekly trends fetch error:", err);
-    gallery.innerHTML = "<p>Veriler alınamadı.</p>";
+    console.error('Weekly trends fetch error:', err);
+    gallery.innerHTML = '<p>Veriler alınamadı.</p>';
   }
 }
 function initWeeklySection() {
-  gallery = document.querySelector(".weekly__gallery");
-  seeAllBtn = document.querySelector(".weekly__see-all");
+  gallery = document.querySelector('.weekly__gallery');
+  seeAllBtn = document.querySelector('.weekly__see-all');
   if (!gallery || !seeAllBtn) {
-    console.warn("weekly-gallery veya see-all bulunamadı.");
+    console.warn('weekly-gallery veya see-all bulunamadı.');
     return;
   }
-  seeAllBtn.addEventListener("click", () => {
+  seeAllBtn.addEventListener('click', () => {
     isExpanded = !isExpanded;
     const count = isExpanded ? allMovies.length : getVisibleCardCount();
     renderWeeklyTrends(count);
   });
-  gallery.addEventListener("click", async (e) => {
-    const card = e.target.closest(".weekly__card");
+  gallery.addEventListener('click', async e => {
+    const card = e.target.closest('.weekly__card');
     if (!card) return;
     const movieId = card.dataset.id;
     try {
       const movie = await fetchMovieDetails(movieId);
       Modal.renderMovie(movie); // <-- generic modal
     } catch (err) {
-      console.error("Popup açılırken hata:", err);
+      console.error('Popup açılırken hata:', err);
     }
   });
   renderWeeklyTrends();
 }
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initWeeklySection, {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWeeklySection, {
     once: true,
   });
 } else {

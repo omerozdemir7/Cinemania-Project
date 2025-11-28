@@ -161,7 +161,7 @@ body.light-theme .weekly__card-info {
   height: auto;
   box-shadow: 1px 1px 14px 4px #ff6b086b;
   position: relative;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: auto;
   overflow: hidden;
   box-sizing: border-box;
@@ -602,7 +602,7 @@ body.light-theme .weekly__remove-btn:hover {
     width: 90vw;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     position: relative;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     overflow-y: auto;
   }

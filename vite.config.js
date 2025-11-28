@@ -4,12 +4,18 @@ import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 export default defineConfig(({ command }) => {
   return {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
+
     root: 'src',
+
+    
+    base: '/Cinemania-Project/',
+
     build: {
       sourcemap: true,
       rollupOptions: {
@@ -37,7 +43,7 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
       emptyOutDir: true,
     },
-    // base: '/CineCode/',
+
     plugins: [
       injectHTML(),
       FullReload(['./src/**/**.html']),
@@ -45,10 +51,10 @@ export default defineConfig(({ command }) => {
         sort: 'mobile-first',
       }),
       viteStaticCopy({
-      targets: [
-        { src: 'components/**/*', dest: 'components' }, 
-      ],
-    }),
+        targets: [
+          { src: 'components/**/*', dest: 'components' },
+        ],
+      }),
     ],
   };
 });
