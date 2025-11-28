@@ -4,6 +4,7 @@ function initHeader() {
   document.querySelectorAll('.header__logo-icon').forEach(img => {
     img.src = popcornUrl;
   });
+  prefixLinksWithBaseUrl();
   initMenu('#menuLinks', 'menuLinks:active');
   initMenu('#links', 'menuLinks:active');
   initSidebar('#menu', '.header__sidebar', '.header__sidebar-backdrop');
@@ -17,6 +18,25 @@ function initHeader() {
     body: 'body',
   });
 }
+
+function prefixLinksWithBaseUrl() {
+  const navLinks = document.querySelectorAll('.header__navbar a, .header__sidebar a');
+  const baseUrl = import.meta.env.BASE_URL;
+
+  // Sadece geliştirme dışında ve baseUrl tanımlıysa çalıştır
+  if (import.meta.env.PROD && baseUrl) {
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      // Sadece kök-göreli (root-relative) ve harici olmayan linkleri güncelle
+      if (href && href.startsWith('/') && !href.startsWith('//')) {
+        // BASE_URL'in sonunda zaten / olduğunu varsayarak baştaki /'ı kaldır
+        const newHref = baseUrl + href.substring(1);
+        link.setAttribute('href', newHref);
+      }
+    });
+  }
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initHeader);
 } else {
