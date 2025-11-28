@@ -28,8 +28,8 @@ import{f as c,a as d,b as h}from"./api-DdP_p3xO.js";import{Modal as i}from"./mod
       </p>
 
       <div class="hero__ctas">
-        <a href="../../pages/catalog/catalog.html" class="hero__btn--play">Get Started</a>
+        <a href="/pages/catalog/catalog.html" class="hero__btn--play">Get Started</a>
       </div>
     </div>
   `}async function f(t){var r;try{const e=await d(t),s=Array.isArray((r=e==null?void 0:e.data)==null?void 0:r.results)?e.data.results:e==null?void 0:e.results,o=s==null?void 0:s.find(a=>a.type==="Trailer"&&a.site==="YouTube");o?i.showTrailer(o.key):i.showMessage("Trailer not available.","Info")}catch(e){console.error("Play trailer error:",e),i.showMessage("Error fetching trailer.","Error")}}async function v(t){try{const r=await h(t),e=(r==null?void 0:r.data)??r;i.renderMovie(e)}catch(r){console.error("Movie details error:",r),i.showMessage("Movie details could not be loaded.","Error")}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n();
-//# sourceMappingURL=hero-veY1NJXH.js.map
+//# sourceMappingURL=hero-CHCmVSBq.js.map
