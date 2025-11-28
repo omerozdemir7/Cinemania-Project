@@ -2,7 +2,9 @@
 .hero {
   position: relative;
   height: 380px;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
   color: #fff;
 }
