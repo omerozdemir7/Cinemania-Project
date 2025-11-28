@@ -13,9 +13,7 @@ async function initHeroSection() {
 
   try {
     const data = await fetchDailyTrending();
-    const movies = Array.isArray(data?.data?.results)
-      ? data.data.results
-      : data?.results || [];
+    const movies = data?.results || [];
 
     if (!movies.length) {
       renderDefaultHero(heroRoot);
