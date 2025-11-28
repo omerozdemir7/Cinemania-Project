@@ -23,14 +23,14 @@ function prefixLinksWithBaseUrl() {
   const navLinks = document.querySelectorAll('.header__navbar a, .header__sidebar a');
   const baseUrl = import.meta.env.BASE_URL;
 
-  // Sadece geliştirme dışında ve baseUrl tanımlıysa çalıştır
-  if (import.meta.env.PROD && baseUrl) {
+  // Sadece build modunda ve base URL '/' değilse çalıştır
+  if (import.meta.env.PROD && baseUrl && baseUrl !== '/') {
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      // Sadece kök-göreli (root-relative) ve harici olmayan linkleri güncelle
+      // Sadece kök-göreli (root-relative), harici olmayan ve boş olmayan linkleri güncelle
       if (href && href.startsWith('/') && !href.startsWith('//')) {
-        // BASE_URL'in sonunda zaten / olduğunu varsayarak baştaki /'ı kaldır
-        const newHref = baseUrl + href.substring(1);
+        // 'baseUrl' sonunda '/' var ve 'href' başında '/' var, bu yüzden birini kaldır
+        const newHref = baseUrl.slice(0, -1) + href;
         link.setAttribute('href', newHref);
       }
     });
