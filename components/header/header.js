@@ -1,4 +1,9 @@
+import popcornUrl from '/images/header/popcorn.png';
+
 function initHeader() {
+  document.querySelectorAll('.header__logo-icon').forEach(img => {
+    img.src = popcornUrl;
+  });
   initMenu('#menuLinks', 'menuLinks:active');
   initMenu('#links', 'menuLinks:active');
   initSidebar('#menu', '.header__sidebar', '.header__sidebar-backdrop');
@@ -110,7 +115,7 @@ function initTheme(toggleSel, iconSel, refs = {}) {
 
     icon?.setAttribute(
       'href',
-      `/images/icon.svg#${isDark ? 'icon-Vector' : 'icon-Sun'}`
+      `${import.meta.env.BASE_URL}images/icon.svg#${isDark ? 'icon-Vector' : 'icon-Sun'}`
     );
   };
 

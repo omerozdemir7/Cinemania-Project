@@ -2,7 +2,7 @@ const students = [
   {
     name: 'Rıdvan KESKEN',
     role: 'Developer',
-    img: '/images/our-teams/ridvan-kesken.jpeg',
+    img: `${import.meta.env.BASE_URL}images/our-teams/ridvan-kesken.jpeg`,
     github: 'https://github.com/KeskenRidvan',
     linkedin: 'https://www.linkedin.com/in/ridvankesken/',
   },
@@ -21,7 +21,7 @@ function createStudentItem(student) {
           student.github
         }" target="_blank" aria-label="GitHub">
           <svg class="footer__icon" width="30" height="30">
-            <use xlink:href="/images/icon.svg#icon-github"></use>
+            <use xlink:href="${import.meta.env.BASE_URL}images/icon.svg#icon-github"></use>
           </svg>
         </a>
         ${
@@ -29,7 +29,7 @@ function createStudentItem(student) {
             ? `
         <a class="footer__icon-link" href="${student.linkedin}" target="_blank" aria-label="LinkedIn">
           <svg class="footer__icon" width="30" height="30">
-            <use xlink:href="/images/icon.svg#icon-linkedin"></use>
+            <use xlink:href="${import.meta.env.BASE_URL}images/icon.svg#icon-linkedin"></use>
           </svg>
         </a>`
             : ''
