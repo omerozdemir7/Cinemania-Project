@@ -83,6 +83,14 @@ ul {
   color: var(--primary-black);
 }
 
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  font-display: swap;
+}
+
 .star-rating {
   display: flex;
   gap: 4px;

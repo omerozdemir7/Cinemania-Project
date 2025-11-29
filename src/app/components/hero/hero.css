@@ -27,6 +27,7 @@
   position: relative;
   z-index: 70;
   right: clamp(0px, 6vw, 100px);
+  will-change: transform, opacity;
   transition:
     right 360ms ease,
     max-width 360ms ease;

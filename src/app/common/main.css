@@ -1,5 +1,4 @@
 @import url('./common.css');
-@import url('../pages/home/index.css');
 @import url('../layout/header/header.css');
 @import url('../layout/footer/footer.css');
 @import url('../components/team-modal/team-modal.css');
@@ -9,5 +8,3 @@
 @import url('../components/trailer-modal/trailer.modal.css');
 @import url('../layout/mobile-nav/mobile-nav.css');
 @import url('../components/movie-card/movie-card.css');
-@import url('../pages/home/upcoming.css');
-@import url('../pages/home/weekly.css');
