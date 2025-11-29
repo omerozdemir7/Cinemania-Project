@@ -25,7 +25,7 @@ const initLibrary = async () => {
       <div class="library-message">
         <p style="font-size: 24px; font-weight: 500; margin-bottom: 10px;">OOPS...</p>
         <p>Henüz bir film eklemediniz!</p>
-        <a href="/catalog.html" class="btn btn-primary" style="margin-top:20px; display:inline-block;">Kataloğa Git</a>
+        <a href="./catalog.html" class="btn btn-primary" style="margin-top:20px; display:inline-block;">Kataloğa Git</a>
       </div>`;
     if (genreContainer) genreContainer.style.display = 'none';
     if (loadMoreContainer) loadMoreContainer.classList.add('is-hidden');

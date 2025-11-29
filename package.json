@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
   "dev": "vite",
-  "build": "vite build --base=/cinemania/",
-  "preview": "vite preview",
+      "build": "vite build --base=/Cinemania-Project/",  "preview": "vite preview",
   "predeploy": "npm run build",
   "deploy": "gh-pages -d dist"
 },

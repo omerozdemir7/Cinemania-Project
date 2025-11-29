@@ -4,21 +4,33 @@ import injectHTML from "vite-plugin-html-inject";
 
 export default defineConfig(({ command }) => {
   return {
-    base: "/Cinemania-Project/", // ⭐ GitHub Pages için eklendi
+    base: "/Cinemania-Project/", // ⭐ GitHub Pages için zorunlu
+
     define: {
       [command === "serve" ? "global" : "_global"]: {},
     },
-    root: "src", // Projenin kökü src klasörün
+
+    root: "src", // ⭐ Proje kökü src klasörü
+
     build: {
+      outDir: "../dist",         // ⭐ dist köke çıkacak
+      emptyOutDir: true,         // ⭐ build öncesi dist temizlenir
       sourcemap: true,
+
       rollupOptions: {
-        // src içindeki tüm HTML dosyalarını giriş sayfası yap
-        input: glob.sync("./src/*.html"),
-        outDir: "../dist", // dist klasörü üst dizine gider
+        // ⭐ src içindeki TÜM HTML dosyalarını otomatik giriş yapar
+        // alt klasörleri bile otomatik tarar (home, catalog, library, modals, helpers...)
+        input: Object.fromEntries(
+          glob.sync("**/*.html", { cwd: "src" }).map(file => [
+            file.replace(/\.html$/, ""), // entry ismi
+            `src/${file}`,               // tam yol
+          ])
+        ),
       },
     },
+
     plugins: [
-      injectHTML(), // <load> etiketlerini işler
+      injectHTML(), // ⭐ <load> etiketleri sorunsuz çalışır
     ],
   };
 });
