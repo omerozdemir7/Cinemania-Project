@@ -1,11 +1,7 @@
-/* =============================
-   3. HEADER VE NAVİGASYON
-============================== */
 .site-header {
   background-color: var(--hero-color);
-  padding: 20px 0;
   position: relative;
-  z-index: 1000; /* Mobil menüden yüksek olmalı */
+  z-index: 1000;
   transition: background-color 0.3s;
 }
 
@@ -13,13 +9,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 10000; /* Mobil menü açıldığında bile üstte kalması için */
+  z-index: 10000;
 }
 
 .logo img {
@@ -52,12 +50,9 @@
   color: var(--primary-orange);
 }
 
-/* =============================
-   4. TEMA DEĞİŞTİRİCİ (TOGGLE)
-============================== */
 .theme-switcher {
   position: relative;
-  z-index: 10000; /* Mobil menü açıldığında bile üstte kalması için */
+  z-index: 10000;
 }
 .switch {
   --switch-w: 60px;
@@ -110,15 +105,12 @@
   position: absolute;
   width: var(--circle-size);
   height: var(--circle-size);
-  /* Daireyi CSS ile çiziyoruz: */
-  background-color: #ffffff; /* Beyaz renk */
-  border-radius: 50%; /* Tam yuvarlak */
-  /* -------------------------- */
+  background-color: #ffffff;
+  border-radius: 50%;
   top: calc((var(--switch-h) - var(--circle-size)) / 2);
   left: calc(var(--switch-w) - var(--circle-size) - var(--switch-padding));
   transition: all 0.28s ease;
   z-index: 2;
-  /* Gölge ekleyerek daha belirgin yapabilirsin (isteğe bağlı) */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .slider-circle-white {
@@ -149,14 +141,12 @@ input:checked + .slider .slider-circle-container {
   );
 }
 
-/* --- HEADER RESPONSIVE (En alta ekle) --- */
-
 @media (max-width: 768px) {
   .site-header {
     padding: 18px 0;
   }
   .logo span {
-    display: none; /* Mobilde logo yazısını gizle, sadece ikon kalsın */
+    display: none;
   }
 }
 
@@ -167,7 +157,6 @@ input:checked + .slider .slider-circle-container {
   .header-container {
     gap: 8px;
   }
-  /* Switch küçültme */
   .switch {
     transform: scale(0.8);
   }

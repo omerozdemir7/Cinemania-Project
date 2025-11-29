@@ -1,6 +1,3 @@
-/* =============================
-   5. GENEL HERO YAPISI
-============================== */
 .hero-section {
   position: relative;
   display: flex;
@@ -21,15 +18,15 @@
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
-  z-index: 60; /* Overlay'in önünde */
+  z-index: 60;
 }
 
 .hero-content {
-  max-width: 52%;
+  max-width: min(52%, 640px);
   color: var(--primary-white);
   position: relative;
-  z-index: 70; /* İçerik overlay'in üstünde olmalı */
-  right: 100px; /* Görseldeki sola kaydırma efekti için */
+  z-index: 70;
+  right: clamp(0px, 6vw, 100px);
   transition:
     right 360ms ease,
     max-width 360ms ease;
@@ -37,7 +34,7 @@
 
 .hero-content h1,
 .hero-title {
-  font-size: 64px;
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 24px;
@@ -49,7 +46,7 @@
   font-size: 16px;
   line-height: 1.6;
   color: #e0e0e0;
-  max-width: 500px;
+  max-width: 520px;
   margin-bottom: 32px;
 }
 
@@ -58,28 +55,17 @@
   gap: 16px;
 }
 
-
-/* --- HERO RESPONSIVE (En alta ekle) --- */
-
-/* Tablet (768px ve altı) */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-section {
     min-height: 72vh;
-    background-position: 80% center !important; /* Resmi ortala */
+    background-position: 80% center !important;
   }
   .hero-content {
-    max-width: 62%;
+    max-width: min(62%, 640px);
     right: 0;
-  }
-  .hero-content h1 {
-    font-size: 48px;
-  }
-  .hero-content p {
-    font-size: 15px;
   }
 }
 
-/* Mobil (480px ve altı) */
 @media (max-width: 480px) {
   .hero-section {
     min-height: 60vh;
@@ -89,10 +75,6 @@
   }
   .hero-content {
     max-width: 92%;
-  }
-  .hero-content h1 {
-    font-size: 32px;
-    line-height: 1.15;
   }
   .hero-content p {
     font-size: 14px;

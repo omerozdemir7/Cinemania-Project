@@ -9,12 +9,10 @@
   color: var(--primary-white);
 }
 
-/* Desktop (Varsayılan - 1280px ve üstü) */
 .upcoming-container {
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  
 }
 
 .upcoming-image {
@@ -23,16 +21,16 @@
 
 .upcoming-image img {
   width: 100%;
-  
+  max-height: 470px;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 0 20px rgba(255, 107, 8, 0.15); /* Hafif turuncu gölge */
-  height: 470px;
+  box-shadow: 0 0 20px rgba(255, 107, 8, 0.15);
   display: block;
 }
 
 .upcoming-info {
-  flex: 1.2; /* Yazı alanı biraz daha geniş olsun */
+  flex: 1.2;
   padding-top: 10px;
 }
 
@@ -44,7 +42,6 @@
   text-transform: uppercase;
 }
 
-/* Detay Listesi (Tarih, Vote, Popülerlik, Tür) */
 .movie-details-list {
   display: flex;
   flex-direction: column;
@@ -58,13 +55,13 @@
 }
 
 .detail-key {
-  width: 150px; /* Etiket genişliği sabit */
+  width: 150px;
   color: var(--text-grey);
   font-weight: 500;
   flex-shrink: 0;
 }
 
-.detail-value, 
+.detail-value,
 .detail-history {
   color: var(--primary-white);
   font-weight: 500;
@@ -83,13 +80,12 @@
   font-size: 14px;
 }
 
-/* ABOUT Kısmı */
 .upcoming-info h4 {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 15px;
-  color: var(--text-grey); /* Başlık hafif gri */
+  color: var(--text-grey);
 }
 
 .about-text {
@@ -99,10 +95,8 @@
   margin-bottom: 30px;
 }
 
-/* Butonun tam genişlik/mobil uyumu */
 .btn-add-library {
-  /* Mobilde görseldeki gibi turuncu gradient */
-  background: linear-gradient(90deg, #FF6B08 0%, #FF8C40 100%);
+  background: linear-gradient(90deg, #ff6b08 0%, #ff8c40 100%);
   border: none;
   color: #fff;
 }
@@ -114,20 +108,8 @@
   }
 
   .upcoming-container {
-    flex-direction: column; /* Alt alta sırala */
+    flex-direction: column;
     gap: 24px;
-  }
-
-  .upcoming-image {
-    width: 100%;
-  }
-  
-  /* Mobilde resim tam genişlik */
-  .upcoming-image img {
-    width: 100%;
-    max-height: 500px; /* Çok uzamasını engelle */
-    object-fit: cover;
-    object-position: top center;
   }
 
   .upcoming-info {
@@ -135,29 +117,26 @@
     padding-top: 0;
   }
 
-  /* Mobilde Başlık */
   .upcoming-info h3 {
     font-size: 24px;
     margin-bottom: 20px;
     margin-top: 5px;
   }
 
-  /* Mobilde detaylar */
   .detail-key {
-    width: 120px; /* Mobilde etiket alanını biraz daralt */
+    width: 120px;
   }
-  
+
   .about-text {
-    font-size: 14px; /* Yazı biraz küçülsün */
+    font-size: 14px;
   }
-  
-  /* Buton mobilde %100 genişlik olabilir (isteğe bağlı) */
+
   .btn-add-library {
-    width: 200px; /* Görselde buton geniş görünüyor */
+    width: 200px;
     height: 38px;
     justify-content: center;
     display: flex;
     align-items: center;
-    padding: 24px 12px 24px 12px;
+    padding: 12px;
   }
 }

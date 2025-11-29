@@ -1,11 +1,3 @@
-/* =============================
-   COMMON.CSS - ORTAK STİLLER
-   (Tüm sayfalar için geçerli)
-============================== */
-
-/* =============================
-   1. ROOT DEĞİŞKENLERİ
-============================== */
 :root {
   --primary-orange: #ff6b08;
   --primary-black: #121212;
@@ -15,7 +7,6 @@
   --toggle-bg: #4b4848;
   --card-border-active: #30b5e5;
   --hero-color: #000000;
-  /* Light Mode Renkleri */
   --light-bg: #f5f5ff;
   --light-text: #111111;
   --light-header-bg: #ffffff;
@@ -23,9 +14,6 @@
   --light-border: #dddddd;
 }
 
-/* =============================
-   2. TEMEL SIFIRLAMA VE GENEL ETİKETLER
-============================== */
 * {
   margin: 0;
   padding: 0;
@@ -39,12 +27,10 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Modal açıkken sayfanın kaymasını engeller */
 body.modal-open {
   overflow: hidden;
 }
 
-/* JS ile element gizlemek için */
 .is-hidden {
   display: none !important;
 }
@@ -52,7 +38,7 @@ body.modal-open {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: clamp(16px, 3vw, 28px);
 }
 
 a {
@@ -65,9 +51,6 @@ ul {
   list-style: none;
 }
 
-/* =============================
-   6. BUTONLAR VE YILDIZLAR (GENEL)
-============================== */
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -110,11 +93,6 @@ ul {
   margin-bottom: 16px;
 }
 
-/* =============================
-   13. LIGHT MODE (AYDINLIK MOD)
-============================== */
-
-/* --- Genel Light Mode Ayarları --- */
 body.light-mode {
   background-color: var(--light-bg);
   color: var(--light-text);
@@ -158,7 +136,6 @@ body.light-mode .site-footer {
   color: #555;
 }
 
-/* --- Hero Light Mode Ayarı --- */
 body.light-mode .hero-section .hero-content h1,
 body.light-mode .hero-section .hero-content .hero-title,
 body.light-mode .hero-section .hero-content p,
@@ -170,7 +147,6 @@ body.light-mode .hero-section .star-rating .fa-star {
   color: var(--primary-orange) !important;
 }
 
-/* --- Modal Light Mode Ayarları --- */
 body.light-mode .modal-window {
   background-color: #ffffff !important;
   color: #111111 !important;
@@ -210,7 +186,6 @@ body.light-mode .btn-modal-add:hover {
   color: #fff !important;
 }
 
-/* --- Trailer Modal Light Mode Ayarları --- */
 body.light-mode .trailer-error-window {
   background-color: #ffffff !important;
   border-color: #ddd !important;
@@ -220,15 +195,10 @@ body.light-mode .trailer-error-text h2,
 body.light-mode .trailer-error-text p {
   color: #000000 !important;
 }
-/* --- GLOBAL RESPONSIVE --- */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 28px;
-  }
-}
 
-@media (max-width: 480px) {
-  .container {
-    padding: 0 16px;
-  }
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
