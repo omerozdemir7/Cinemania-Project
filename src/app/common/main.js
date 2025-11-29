@@ -1,56 +1,59 @@
 // src/app/common/main.js
 
-// === 1. ORTAK MODÜLLERİ İÇERİ AL ===
+// Ortak modalleri ve temayı hazırla
 import { setupModal } from '../components/modal/modal.js';
 import { setupTeamModal } from '../components/team-modal/team-modal.js';
 import '../layout/mobile-nav/mobile-nav.js';
 import './theme-toggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- A. Ortak Bileşenleri Başlat ---
   const { openModal } = setupModal();
   window.openMovieModal = openModal;
   setupTeamModal();
 
-  // --- B. Sayfa Yönlendirme (Routing) ---
+  // Sayfa türünü URL'e göre belirle (Pages alt yolu dâhil)
+  const currentUrl = window.location.href;
   const path = window.location.pathname;
+  const isCatalog = currentUrl.includes('catalog');
+  const isLibrary = currentUrl.includes('my-library');
+  const isHome =
+    !isCatalog &&
+    !isLibrary &&
+    (currentUrl.endsWith('/') ||
+      currentUrl.includes('index.html') ||
+      path === '/' ||
+      path === '/Cinemania-Project/' ||
+      path === '/Cinemania-Project');
+
   let moduleName = null;
   let modulePath = null;
 
-  if (path.includes('catalog.html')) {
+  if (isCatalog) {
     moduleName = 'catalog.js';
     modulePath = '../pages/catalog/catalog.js';
-  } else if (path.includes('my-library.html')) {
+  } else if (isLibrary) {
     moduleName = 'my-library.js';
     modulePath = '../pages/my-library/my-library.js';
-  } else if (path === '/' || path.endsWith('index.html')) {
+  } else if (isHome) {
     moduleName = 'index.js';
     modulePath = '../pages/home/index.js';
   }
 
-  // --- C. Navbar Aktif Link Ayarı (EKLENEN KISIM) ---
-  // Hangi sayfadaysak o linke 'active' sınıfını ekle
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Navbar aktif linki işaretle
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href') || '';
 
-  navLinks.forEach(link => {
-    link.classList.remove('active'); // Önce hepsini temizle
-    const href = link.getAttribute('href');
-
-    // 1. Home Kontrolü (Ana sayfa veya index.html)
-    if ((path === '/' || path.includes('index.html')) && href.includes('index.html')) {
+    if (isHome && href.includes('index')) {
       link.classList.add('active');
-    }
-    // 2. Catalog Kontrolü
-    else if (path.includes('catalog') && href.includes('catalog')) {
+    } else if (isCatalog && href.includes('catalog')) {
       link.classList.add('active');
-    }
-    // 3. Library Kontrolü
-    else if (path.includes('library') && href.includes('library')) {
+    } else if (isLibrary && href.includes('library')) {
       link.classList.add('active');
     }
   });
 
-  // --- D. Modülü Yükle ---
+  // Sayfa modülünü yükle
   if (modulePath) {
     import(modulePath)
       .then(() => console.log(`${moduleName} yüklendi.`))
