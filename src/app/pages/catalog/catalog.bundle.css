@@ -1,0 +1,5 @@
+@import url('./catalog.css');
+@import url('./genre.css');
+@import url('./movie-grid.css');
+@import url('./search.css');
+@import url('../../components/pagination/Pagination.css');
