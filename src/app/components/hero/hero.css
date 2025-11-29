@@ -56,6 +56,12 @@
   gap: 16px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    transition: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-section {
     min-height: 72vh;

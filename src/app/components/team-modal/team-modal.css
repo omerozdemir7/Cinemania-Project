@@ -1,8 +1,5 @@
-/* =============================
-   EKİP MODALI (TEAM MODAL)
-============================== */
 .team-modal-window {
-  max-width: 900px; /* Daha geniş bir modal */
+  max-width: 900px;
   width: 90%;
   padding: 50px 30px;
   text-align: center;
@@ -21,10 +18,8 @@
   margin-bottom: 40px;
 }
 
-/* Ekip Grid Yapısı */
 .team-list {
   display: grid;
-  /* Responsive Grid: Mobilde 1, Tablette 2, Desktopta 4 sütun */
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 30px;
   justify-content: center;
@@ -35,6 +30,7 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .team-member:hover {
@@ -49,6 +45,7 @@
   border: 3px solid var(--primary-orange);
   margin-bottom: 15px;
   background-color: #333;
+  aspect-ratio: 1 / 1;
 }
 
 .member-img {
@@ -84,6 +81,7 @@
 .member-social a:hover {
   color: var(--primary-orange);
 }
+
 body.light-mode .team-title {
   color: var(--primary-orange);
 }
@@ -95,4 +93,32 @@ body.light-mode .member-social a {
 }
 body.light-mode .member-social a:hover {
   color: var(--primary-orange);
+}
+
+@media (max-width: 768px) {
+  .team-modal-window {
+    padding: 40px 24px;
+  }
+  .team-list {
+    gap: 20px;
+  }
+  .member-img-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-modal-window {
+    padding: 32px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-member {
+    transition: none;
+  }
+  .team-member:hover {
+    transform: none;
+  }
 }
