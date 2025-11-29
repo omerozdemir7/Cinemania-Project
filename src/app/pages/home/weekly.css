@@ -4,6 +4,11 @@
 .weekly-trends-section {
   padding: 40px 0;
 }
+#weekly-trends-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-items: center;
+  margin: 0 auto;
+}
 .section-header {
   display: flex;
   justify-content: space-between;

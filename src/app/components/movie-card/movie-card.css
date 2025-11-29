@@ -1,12 +1,16 @@
 /* =============================
-   7. FİLM KARTI (GENEL)
+   7. MOVIE CARD & GRID
 ============================== */
 .movie-grid-container {
   display: grid;
-  /* Masaüstünde 3 sütun */
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+
 }
+
 
 .movie-card {
   position: relative;
@@ -16,8 +20,8 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  aspect-ratio: 2 / 3; /* Poster oranı (en/boy) */
-  background-color: #222; /* Resim yüklenene kadar yer tutucu */
+  aspect-ratio: 2 / 3; /* Poster aspect ratio */
+  background-color: #222; /* Placeholder color */
 }
 
 .movie-card:hover {
@@ -32,7 +36,6 @@
   display: block;
 }
 
-/* Kartın altındaki bilgi alanı (gradient overlay) */
 .movie-card-overlay {
   position: absolute;
   bottom: 0;
@@ -69,13 +72,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 10px; /* Rating ile çakışmasın */
+  padding-right: 10px;
 }
 
 .movie-rating {
   color: #ff6b00;
   font-size: 13px;
-  flex-shrink: 0; /* Küçülmesin */
+  flex-shrink: 0;
 }
 
 .movie-rating .fa-star {
@@ -87,10 +90,16 @@
   color: rgba(255, 255, 255, 0.2);
 }
 
+/* --- GRID: RESPONSIVE --- */
 
-/* --- MOVIE CARD GRID RESPONSIVE (En alta ekle) --- */
+/* Large Desktop: 4 Columns */
+@media (min-width: 1281px) {
+  .movie-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
-/* Tablet: 2 Sütun */
+/* Tablet: 2 Columns */
 @media (max-width: 768px) {
   .movie-grid-container {
     grid-template-columns: repeat(2, 1fr); 
@@ -98,7 +107,7 @@
   }
 }
 
-/* Mobil: 1 Sütun */
+/* Mobile: 1 Column */
 @media (max-width: 480px) {
   .movie-grid-container {
     grid-template-columns: 1fr;

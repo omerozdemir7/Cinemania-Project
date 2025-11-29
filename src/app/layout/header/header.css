@@ -148,6 +148,12 @@ input:checked + .slider .slider-circle-container {
   .logo span {
     display: none;
   }
+  .main-nav ul {
+    display: none; /* Hide desktop nav links */
+  }
+  .mobile-menu-btn {
+    display: none !important; /* Show hamburger button - overriding inline style */
+  }
 }
 
 @media (max-width: 480px) {

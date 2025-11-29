@@ -72,7 +72,7 @@ body.menu-open .mobile-nav-close {
     transform: translateX(0); /* Açılınca ekrana gir */
   }
   
-  .main-nav ul {
+  .main-nav.is-open ul {
     display: flex !important;
     flex-direction: column;
     gap: 30px;
