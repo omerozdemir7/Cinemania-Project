@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cinemania - Home</title>
+  <title>Cinemania - My Library</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script type="module" crossorigin src="/Cinemania-Project/assets/main-Cfu3XhGB.js"></script>
   <link rel="stylesheet" crossorigin href="/Cinemania-Project/assets/main-BdkTJjLt.css">
 </head>
 <body>
 
-  <header>
+
+ <header>
   <header class="site-header">
   <div class="container header-container">
     <a href="./index.html" class="logo">
@@ -47,42 +48,33 @@
 <div class="mobile-overlay"></div>
 
 </header>
+
   <main>
-    <section class="hero-section" id="home-hero">
-  <div class="container hero-container">
-    <div class="hero-content">
-      <h1 class="hero-title">Let's Make Your Own Cinema</h1>
-      <p class="hero-description">
-        Is a guide to creating a personalized movie theater experience.
-        You'll need a projector, screen, and speakers. Decorate your
-        space, choose your films, and stock up on snacks for the full experience.
-      </p>
-      <div class="hero-buttons">
-         <a href="./catalog.html" class="btn btn-primary">Get Started</a>
+     <section class="hero-section" id="library-hero">
+      <div class="container hero-container">
+        <div class="hero-content" id="library-hero-content"></div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="weekly-trends-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>WEEKLY TRENDS</h2>
-      <a href="./catalog.html" class="see-all-link">See all</a>
-    </div>
-    <div class="movie-grid-container" id="weekly-trends-grid"></div>
-  </div>
-</section>
+    <section class="library-content-section">
+      <div class="container">
+        <div class="genre-filter-container" id="genre-filter-container">
+          <div class="genre-header" id="genre-header">
+            <span id="selected-genre-text">Genre</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="genre-list is-hidden" id="genre-list"></div>
+        </div>
 
-<section class="upcoming-section">
-  <div class="container">
-    <h2>UPCOMING THIS MONTH</h2>
-    <div class="upcoming-container" id="upcoming-container"></div>
-  </div>
-</section>
+        <div class="movie-grid-container" id="library-grid"></div>
 
+        <div class="load-more-container is-hidden" id="load-more-container">
+          <button class="btn btn-primary load-more-btn" id="load-more-btn">Load More</button>
+        </div>
+      </div>
+    </section>
 
-     <!-- ================= TRAILER ERROR MODAL (BAŞLANGIÇ) ================= -->
+      <!-- ================= TRAILER ERROR MODAL (BAŞLANGIÇ) ================= -->
 <div class="modal-backdrop is-hidden" id="trailer-error-backdrop">
   <div class="modal-window trailer-error-window">
 
@@ -185,10 +177,10 @@
   </main>
 
   
- 
 
-<footer>
+  
 
+  <footer>
 <footer class="site-footer">
   <div class="container">
     <p>
@@ -294,7 +286,7 @@
 </div>
 <!-- ================= TEAM MODAL (BITIS) ================= -->
 
-</footer>
+  </footer>
 
 </body>
 </html>
