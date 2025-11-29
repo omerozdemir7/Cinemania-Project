@@ -6,6 +6,13 @@ const students = [
     github: 'https://github.com/KeskenRidvan',
     linkedin: 'https://www.linkedin.com/in/ridvankesken/',
   },
+  {
+    name: 'Merdan ŞAHİN',
+    role: 'Developer',
+    img: '/images/our-teams/merdan-sahin.jpeg',
+    github: 'https://github.com/merdansahin',
+    linkedin: 'https://www.linkedin.com/in/merdansahin/',
+  },
 ];
 
 function createStudentItem(student) {
