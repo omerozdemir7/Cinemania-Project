@@ -144,7 +144,7 @@ export function renderUpcomingSection(movie, container) {
 
   container.innerHTML = `
     <div class="upcoming-image">
-      <img src="${imageUrl}" alt="${movie.title}" loading="lazy" />
+      <img src="${imageUrl}" alt="${movie.title}" loading="lazy" width="800" height="450" />
     </div>
     <div class="upcoming-info">
       <h3>${movie.title}</h3>
